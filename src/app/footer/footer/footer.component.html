@@ -1,0 +1,19 @@
+<div class="footer">
+    <div class="container" *ngIf="footer">
+        <div *ngFor="let block of footer; let i = index" class="footer__block">
+            <h1 [ngClass]="{'on': whichOpen == i}" (click)="showFooterList(i)">{{block.name}}</h1>
+            <ul [@toggleFooter]="whichOpen == i">
+                <li *ngFor="let item of block.children">
+                    <a href="none">{{item.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="footer__copyright">
+    <div class="container">
+        <p>Dariusz Błotko</p>
+    </div>
+</div>

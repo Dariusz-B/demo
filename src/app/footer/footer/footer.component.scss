@@ -1,0 +1,91 @@
+@import '../../../mixins.scss';
+
+.footer {
+    background: #000;
+    color: #fff;
+    margin-top: 30px;
+    padding: 20px 0 30px 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .footer__block {
+        flex: 1 1 100%;
+
+        @include bp('medium') {
+            flex: 1 1 48%;
+        }
+        @include bp('large') {
+            flex: 1 1 23%;
+        }
+
+
+    }
+
+
+    h1 {
+        font-size: 20px;
+        padding: 0 10px 20px 10px;
+        position: relative;
+        border-bottom: 1px solid #ddd;
+        @include bp('medium') {
+            border-bottom: 0;
+            padding: 0 10px;
+        }
+
+        &:after {
+            display: block;
+            content: "+";
+            position: absolute;
+            right: 12px;
+            top: 0px;
+            @include bp('medium') {
+                display: none;
+            }
+        }
+        &.on {
+            &:after {
+                content: "-";
+            } 
+        }
+    }
+    ul {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        @include bp('medium') {
+            height: inherit !important;
+        }
+
+        li {
+            list-style: none;
+            cursor: pointer;
+            padding: 10px;
+            margin: 0;
+            font-size: 14px;
+            transition: 0.3s all;
+
+            &:hover {
+                color: #b9251b;
+            }
+        }
+    }
+}
+
+
+.footer__copyright {
+    padding: 10px;
+    background: #111;
+    color: #fff;
+    @include bp('medium') {
+        border-top: 1px solid #ddd;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+}

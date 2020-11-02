@@ -1,0 +1,14 @@
+$breakpoints: (
+  large: 1250px,
+  medium: 800px,
+  small: 380px,
+);
+
+@mixin bp($breakpoint) {
+    $query: map-get($breakpoints, $breakpoint);
+    @if $query != null {
+      @media (min-width: #{$query}) {
+        @content;
+      }
+    }
+  }
